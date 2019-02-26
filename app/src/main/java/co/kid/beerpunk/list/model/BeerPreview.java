@@ -11,11 +11,12 @@ public class BeerPreview {
     private String imageUrl;
     private double ibu;
 
-    public BeerPreview(int id, String name, String tagline, String imageUrl) {
+    public BeerPreview(int id, String name, String tagline, String imageUrl, double ibu) {
         this.id = id;
         this.name = name;
         this.tagline = tagline;
         this.imageUrl = imageUrl;
+        this.ibu = ibu;
     }
 
     public int getId() {
