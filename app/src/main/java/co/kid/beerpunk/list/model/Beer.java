@@ -9,13 +9,17 @@ public class Beer {
     private String name;
     private String tagline;
     private String imageUrl;
-    private double abv;
     private double ibu;
-    private String firstBrewed;
-    private int originalGravity;
-    private int finalGravity;
-    private double ph;
-    private int srm;
+
+    public Beer(int id, String name, String tagline, String imageUrl, double ibu) {
+        this.id = id;
+        this.name = name;
+        this.tagline = tagline;
+        this.imageUrl = imageUrl;
+        this.ibu = ibu;
+    }
+
+    public Beer() {}
 
     public int getId() {
         return id;
@@ -33,32 +37,8 @@ public class Beer {
         return imageUrl;
     }
 
-    public double getAbv() {
-        return abv;
-    }
-
     public double getIbu() {
         return ibu;
-    }
-
-    public String getFirstBrewed() {
-        return firstBrewed;
-    }
-
-    public int getOriginalGravity() {
-        return originalGravity;
-    }
-
-    public int getFinalGravity() {
-        return finalGravity;
-    }
-
-    public double getPh() {
-        return ph;
-    }
-
-    public int getSrm() {
-        return srm;
     }
 
     @Override
@@ -68,13 +48,7 @@ public class Beer {
                 ", name='" + name + '\'' +
                 ", tagline='" + tagline + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
-                ", abv=" + abv +
                 ", ibu=" + ibu +
-                ", firstBrewed='" + firstBrewed + '\'' +
-                ", originalGravity=" + originalGravity +
-                ", finalGravity=" + finalGravity +
-                ", ph=" + ph +
-                ", srm=" + srm +
                 '}';
     }
 }
