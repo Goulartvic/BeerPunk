@@ -1,6 +1,7 @@
 package co.kid.beerpunk.list.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Beer {
@@ -8,6 +9,7 @@ public class Beer {
     private int id;
     private String name;
     private String tagline;
+    @JsonProperty(value = "image_url")
     private String imageUrl;
     private double ibu;
 

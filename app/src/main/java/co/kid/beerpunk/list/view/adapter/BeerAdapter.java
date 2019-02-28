@@ -36,7 +36,8 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
     public void onBindViewHolder(BeerViewHolder holder, int position) {
         final Beer beer = beers.get(position);
         holder.beerName.setText(beer.getName());
-        holder.beerIbu.setText(String.valueOf(beer.getIbu()));
+        holder.beerIbu.setText("IBU: " + String.valueOf(beer.getIbu()));
+        holder.tagline.setText(beer.getTagline());
         Glide.with(context).load(beer.getImageUrl()).into(holder.beerImage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -55,12 +56,14 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
         ImageView beerImage;
         TextView beerName;
         TextView beerIbu;
+        TextView tagline;
 
         public BeerViewHolder(View itemView) {
             super(itemView);
             beerImage= (ImageView) itemView.findViewById(R.id.imageBeer);
             beerName = (TextView) itemView.findViewById(R.id.textNameBeer);
             beerIbu = itemView.findViewById(R.id.beer_ibu);
+            tagline = itemView.findViewById(R.id.textTagLine);
         }
     }
 }
