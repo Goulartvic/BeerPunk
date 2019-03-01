@@ -1,4 +1,4 @@
-package co.kid.beerpunk.list.view;
+package co.kid.beerpunk.list;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,15 +9,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.AbsListView;
-import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import co.kid.beerpunk.R;
 import co.kid.beerpunk.config.RetrofitConfig;
-import co.kid.beerpunk.list.model.Beer;
-import co.kid.beerpunk.list.view.adapter.BeerAdapter;
+import co.kid.beerpunk.list.adapter.BeerAdapter;
+import co.kid.beerpunk.model.Beer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

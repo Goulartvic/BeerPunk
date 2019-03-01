@@ -2,8 +2,8 @@ package co.kid.beerpunk.api;
 
 import java.util.List;
 
-import co.kid.beerpunk.list.model.BeerDetail;
-import co.kid.beerpunk.list.model.Beer;
+import co.kid.beerpunk.model.BeerDetail;
+import co.kid.beerpunk.model.Beer;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -25,5 +25,5 @@ public interface PunkApi {
     );
 
     @GET("beers/{id}")
-    Call<BeerDetail> getById(@Path("id") Long id);
+    Call<List<BeerDetail>> getById(@Path("id") int id);
 }

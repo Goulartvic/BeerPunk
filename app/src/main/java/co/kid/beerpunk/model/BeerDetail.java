@@ -1,6 +1,7 @@
-package co.kid.beerpunk.list.model;
+package co.kid.beerpunk.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BeerDetail {
@@ -8,14 +9,33 @@ public class BeerDetail {
     private int id;
     private String name;
     private String tagline;
+    private String description;
+    @JsonProperty(value = "image_url")
     private String imageUrl;
     private double abv;
     private double ibu;
+    @JsonProperty(value = "first_brewed")
     private String firstBrewed;
+    @JsonProperty(value = "target_og")
     private int originalGravity;
+    @JsonProperty(value = "target_fg")
     private int finalGravity;
-    private double ph;
-    private int srm;
+
+    public BeerDetail() {
+    }
+
+    public void setAll(BeerDetail beerDetail) {
+        this.id = beerDetail.getId();
+        this.name = beerDetail.getName();
+        this.tagline = beerDetail.getTagline();
+        this.description = beerDetail.getDescription();
+        this.imageUrl = beerDetail.getImageUrl();
+        this.abv = beerDetail.getAbv();
+        this.ibu = beerDetail.getIbu();
+        this.firstBrewed = beerDetail.getFirstBrewed();
+        this.originalGravity = beerDetail.getOriginalGravity();
+        this.finalGravity = beerDetail.getFinalGravity();
+    }
 
     public int getId() {
         return id;
@@ -53,12 +73,8 @@ public class BeerDetail {
         return finalGravity;
     }
 
-    public double getPh() {
-        return ph;
-    }
-
-    public int getSrm() {
-        return srm;
+    public String getDescription() {
+        return description;
     }
 
     @Override
@@ -67,14 +83,13 @@ public class BeerDetail {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", tagline='" + tagline + '\'' +
+                ", description='" + description + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", abv=" + abv +
                 ", ibu=" + ibu +
                 ", firstBrewed='" + firstBrewed + '\'' +
                 ", originalGravity=" + originalGravity +
                 ", finalGravity=" + finalGravity +
-                ", ph=" + ph +
-                ", srm=" + srm +
                 '}';
     }
 }

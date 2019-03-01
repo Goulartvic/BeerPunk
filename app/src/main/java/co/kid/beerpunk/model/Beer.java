@@ -1,4 +1,4 @@
-package co.kid.beerpunk.list.model;
+package co.kid.beerpunk.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
