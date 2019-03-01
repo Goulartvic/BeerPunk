@@ -28,6 +28,11 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.BeerViewHolder
         this.beers = beers;
     }
 
+    public void setData(List<Beer> newData) {
+        this.beers = newData;
+        notifyDataSetChanged();
+    }
+
     @Override
     public BeerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(activity);

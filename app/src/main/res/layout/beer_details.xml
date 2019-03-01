@@ -8,231 +8,517 @@
     android:background="@color/cardview_light_background">
 
     <include
+        android:id="@+id/details_toolbar"
         layout="@layout/custom_toolbar"
-        android:id="@+id/details_toolbar"/>
-
-    <ImageView
-        android:id="@+id/favorite_option_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/ic_heart_outlined"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/beer_image_details"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="76dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/beer_title"
-        android:layout_width="0dp"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="164dp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="#4b4b62"
-        android:textSize="14sp"
-        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="3 Point Saison" />
+        app:layout_constraintTop_toBottomOf="@+id/details_toolbar">
 
-    <TextView
-        android:id="@+id/beer_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="100dp"
-        android:fontFamily="sans-serif"
-        android:textColor="#b7b7c0"
-        android:textSize="12sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Pale Ale" />
+        <ImageView
+            android:id="@+id/beer_image_details"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="272dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/first_brewed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="169dp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="#8f18aa"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="First brewed" />
+        <TextView
+            android:id="@+id/beer_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="164dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#4b4b62"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/beer_image_details"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="3 Point Saison" />
 
-    <TextView
-        android:id="@+id/first_brewed_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="196dp"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="6sp"
-        android:textColor="#4b4b62"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1857" />
+        <TextView
+            android:id="@+id/beer_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="212dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:text="Pale Ale"
+            android:textColor="#b7b7c0"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/beer_image_details"
+            app:layout_constraintTop_toBottomOf="@+id/beer_title_text" />
 
-    <TextView
-        android:id="@+id/beer_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="232dp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="#8f18aa"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Description" />
+        <TextView
+            android:id="@+id/first_brewed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="247dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#8f18aa"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beer_image_details"
+            android:text="First brewed" />
 
-    <TextView
-        android:id="@+id/beer_description_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="259dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="7sp"
-        android:textColor="#4b4b62"
-        android:textSize="12sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Our award winning Saison is the colour of the golden sun. This beer has a lively carbonation which releases aromas of luscious tropical fruit. A mellow, honey sweetness is followed by a crisp, tart finish." />
+        <TextView
+            android:id="@+id/first_brewed_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="304dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="6sp"
+            android:text="1857"
+            android:textColor="#4b4b62"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_brewed" />
 
-    <TextView
-        android:id="@+id/beer_abv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="359dp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="#8f18aa"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="ABV" />
+        <TextView
+            android:id="@+id/beer_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="254dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#8f18aa"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_brewed_text"
+            android:text="Description" />
 
-    <TextView
-        android:id="@+id/beer_abv_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="386dp"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="6sp"
-        android:textColor="#4b4b62"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="7%" />
+        <TextView
+            android:id="@+id/beer_description_text"
+            android:layout_width="312dp"
+            android:layout_height="84dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="7sp"
+            android:textColor="#4b4b62"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beer_description"
+            android:text="Our award winning Saison is the colour of the golden sun. This beer has a lively carbonation which releases aromas of luscious tropical fruit. A mellow, honey sweetness is followed by a crisp, tart finish." />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="359dp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="#8f18aa"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="IBU" />
+        <TextView
+            android:id="@+id/beer_abv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="304dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#8f18aa"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beer_description_text"
+            android:text="ABV" />
 
-    <TextView
-        android:id="@+id/beer_ibu_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="386dp"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="6sp"
-        android:textColor="#4b4b62"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="45" />
+        <TextView
+            android:id="@+id/beer_ibu_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="243dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#8f18aa"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/beer_abv"
+            app:layout_constraintTop_toBottomOf="@+id/beer_description_text"
+            android:text="IBU" />
 
-    <TextView
-        android:id="@+id/beer_fg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="422dp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="#8f18aa"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="FG" />
+        <TextView
+            android:id="@+id/beer_abv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="317dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="6sp"
+            android:textColor="#4b4b62"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beer_abv"
+            android:text="7%" />
 
-    <TextView
-        android:id="@+id/beer_fg_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="449dp"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="6sp"
-        android:textColor="#4b4b62"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1012" />
+        <TextView
+            android:id="@+id/beer_ibu_detail_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="253dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="6sp"
+            android:textColor="#4b4b62"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/beer_abv_text"
+            app:layout_constraintTop_toBottomOf="@+id/beer_ibu_detail"
+            android:text="45" />
 
-    <TextView
-        android:id="@+id/beer_og"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="422dp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="#8f18aa"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="OG" />
+        <TextView
+            android:id="@+id/beer_fg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="316dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#8f18aa"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beer_abv_text"
+            android:text="FG" />
 
-    <TextView
-        android:id="@+id/beer_og_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="449dp"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="6sp"
-        android:textColor="#4b4b62"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1052" />
+        <TextView
+            android:id="@+id/beer_fg_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="304dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="6sp"
+            android:textColor="#4b4b62"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beer_fg"
+            android:text="1012" />
+
+        <TextView
+            android:id="@+id/beer_og"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="247dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#8f18aa"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/beer_fg"
+            app:layout_constraintTop_toBottomOf="@+id/beer_ibu_detail_text"
+            android:text="OG" />
+
+        <TextView
+            android:id="@+id/beer_og_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="237dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="6sp"
+            android:textColor="#4b4b62"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/beer_fg_text"
+            app:layout_constraintTop_toBottomOf="@+id/beer_og"
+            android:text="1052" />
+
+</android.support.constraint.ConstraintLayout>
+
+<!--<android.support.constraint.ConstraintLayout-->
+        <!--android:id="@+id/constraintLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginTop="56dp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.0"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/details_toolbar">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/favorite_option_icon"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginEnd="16dp"-->
+            <!--android:layout_marginStart="124dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:contentDescription="TODO"-->
+            <!--android:src="@drawable/ic_heart_outlined"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/beer_title"-->
+            <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/beer_image_details"-->
+            <!--android:layout_width="64dp"-->
+            <!--android:layout_height="64dp"-->
+            <!--android:layout_marginEnd="272dp"-->
+            <!--android:layout_marginStart="24dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:contentDescription="TODO"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/beer_title"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="167dp"-->
+            <!--android:layout_marginEnd="164dp"-->
+            <!--android:layout_marginStart="17dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:fontFamily="sans-serif-medium"-->
+            <!--android:textColor="#4b4b62"-->
+            <!--android:textSize="14sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintBottom_toTopOf="@+id/beer_description_text"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/beer_image_details"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--tools:text="3 Point Saison" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/beer_type"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginEnd="212dp"-->
+            <!--android:layout_marginStart="17dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:fontFamily="sans-serif"-->
+            <!--android:textColor="#b7b7c0"-->
+            <!--android:textSize="12sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/beer_image_details"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/beer_title"-->
+            <!--tools:text="Pale Ale" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/first_brewed"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginEnd="247dp"-->
+            <!--android:layout_marginStart="24dp"-->
+            <!--android:layout_marginTop="33dp"-->
+            <!--android:fontFamily="sans-serif-medium"-->
+            <!--android:textColor="#8f18aa"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/beer_image_details"-->
+            <!--tools:text="First brewed" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/first_brewed_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginEnd="304dp"-->
+            <!--android:layout_marginStart="24dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:fontFamily="sans-serif"-->
+            <!--android:lineSpacingExtra="6sp"-->
+            <!--android:textColor="#4b4b62"-->
+            <!--android:textSize="14sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/first_brewed"-->
+            <!--tools:text="1857" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/beer_description"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginEnd="254dp"-->
+            <!--android:layout_marginStart="24dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:fontFamily="sans-serif-medium"-->
+            <!--android:textColor="#8f18aa"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/first_brewed_text"-->
+            <!--tools:text="Description" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/beer_description_text"-->
+            <!--android:layout_width="312dp"-->
+            <!--android:layout_height="84dp"-->
+            <!--android:layout_marginEnd="84dp"-->
+            <!--android:layout_marginStart="24dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:fontFamily="sans-serif"-->
+            <!--android:lineSpacingExtra="7sp"-->
+            <!--android:textColor="#4b4b62"-->
+            <!--android:textSize="12sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/beer_description"-->
+            <!--tools:text="Our award winning Saison is the colour of the golden sun. This beer has a lively carbonation which releases aromas of luscious tropical fruit. A mellow, honey sweetness is followed by a crisp, tart finish." />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/beer_abv"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="24dp"-->
+            <!--android:layout_marginTop="359dp"-->
+            <!--android:fontFamily="sans-serif-medium"-->
+            <!--android:textColor="#8f18aa"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--tools:text="ABV" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/beer_abv_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="24dp"-->
+            <!--android:layout_marginTop="386dp"-->
+            <!--android:fontFamily="sans-serif"-->
+            <!--android:lineSpacingExtra="6sp"-->
+            <!--android:textColor="#4b4b62"-->
+            <!--android:textSize="14sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--tools:text="7%" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="91dp"-->
+            <!--android:layout_marginTop="359dp"-->
+            <!--android:fontFamily="sans-serif-medium"-->
+            <!--android:textColor="#8f18aa"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--tools:text="IBU" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/beer_ibu_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="91dp"-->
+            <!--android:layout_marginTop="386dp"-->
+            <!--android:fontFamily="sans-serif"-->
+            <!--android:lineSpacingExtra="6sp"-->
+            <!--android:textColor="#4b4b62"-->
+            <!--android:textSize="14sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--tools:text="45" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/beer_fg"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="24dp"-->
+            <!--android:layout_marginTop="422dp"-->
+            <!--android:fontFamily="sans-serif-medium"-->
+            <!--android:textColor="#8f18aa"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--tools:text="FG" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/beer_fg_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="24dp"-->
+            <!--android:layout_marginTop="449dp"-->
+            <!--android:fontFamily="sans-serif"-->
+            <!--android:lineSpacingExtra="6sp"-->
+            <!--android:textColor="#4b4b62"-->
+            <!--android:textSize="14sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--tools:text="1012" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/beer_og"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="91dp"-->
+            <!--android:layout_marginTop="422dp"-->
+            <!--android:fontFamily="sans-serif-medium"-->
+            <!--android:textColor="#8f18aa"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--tools:text="OG" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/beer_og_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="91dp"-->
+            <!--android:layout_marginTop="449dp"-->
+            <!--android:fontFamily="sans-serif"-->
+            <!--android:lineSpacingExtra="6sp"-->
+            <!--android:textColor="#4b4b62"-->
+            <!--android:textSize="14sp"-->
+            <!--android:textStyle="normal"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--tools:text="1052" />-->
+
+
+    <!--</android.support.constraint.ConstraintLayout>-->
+
+
 
 </android.support.constraint.ConstraintLayout>
