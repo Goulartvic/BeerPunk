@@ -7,7 +7,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar" >
+        android:theme="@style/AppTheme" >
         <activity android:name=".list.view.ListBeerActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".details.view.BeerDetailActivity"
+            android:screenOrientation="portrait"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

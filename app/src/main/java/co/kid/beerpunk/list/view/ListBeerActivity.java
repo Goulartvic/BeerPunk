@@ -1,5 +1,6 @@
 package co.kid.beerpunk.list.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -38,8 +39,6 @@ public class ListBeerActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         beerListToolbar = findViewById(R.id.list_toolbar);
         setSupportActionBar(beerListToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getAllBeers(this);
     }
 
@@ -50,12 +49,12 @@ public class ListBeerActivity extends AppCompatActivity {
         return true;
     }
 
-    private void getAllBeers (final Context context) {
+    private void getAllBeers (final Activity activity) {
         Call<List<Beer>> call = retrofitConfig.getPunkApi().listPageable(1, 10);
         call.enqueue(new Callback<List<Beer>>() {
             @Override
             public void onResponse(Call<List<Beer>> call, Response<List<Beer>> response) {
-                    adapter = new BeerAdapter(context, response.body());
+                    adapter = new BeerAdapter(activity, response.body());
                     recyclerView.setAdapter(adapter);
                     recyclerView.setLayoutManager(layoutManager);
             }
