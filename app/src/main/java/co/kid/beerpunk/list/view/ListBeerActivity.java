@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,9 +36,18 @@ public class ListBeerActivity extends AppCompatActivity {
         setContentView(R.layout.list_beers_activity);
         recyclerView = findViewById(R.id.recyclerBeers);
         layoutManager = new LinearLayoutManager(this);
-        beerListToolbar = (Toolbar) findViewById(R.id.beer_list_toolbar);
+        beerListToolbar = findViewById(R.id.list_toolbar);
         setSupportActionBar(beerListToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getAllBeers(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        return true;
     }
 
     private void getAllBeers (final Context context) {

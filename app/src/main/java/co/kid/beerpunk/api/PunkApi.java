@@ -17,6 +17,13 @@ public interface PunkApi {
             @Query("per_page") int perPage
     );
 
+    @GET("beers/{ids}/favorite")
+    Call<List<Beer>> listFavoritesPageable(
+            @Query("page") int page,
+            @Query("per_page") int perPage,
+            @Path("ids") String ids
+    );
+
     @GET("beers/{id}")
     Call<BeerDetail> getById(@Path("id") Long id);
 }
