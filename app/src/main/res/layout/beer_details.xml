@@ -34,29 +34,43 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/favorites_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="124dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_heart_outlined"
+            android:contentDescription="favorite button"
+            android:src="@drawable/ic_heart_outlined"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/beer_title_text"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/beer_title_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="164dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="164dp"
             android:fontFamily="sans-serif-medium"
+            android:text="3 Point Saison"
             android:textColor="#4b4b62"
             android:textSize="14sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/beer_image_details"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="3 Point Saison" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/beer_tagline"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="212dp"
+            android:layout_marginEnd="100dp"
             android:fontFamily="sans-serif"
             android:text="Pale Ale"
             android:textColor="#b7b7c0"
@@ -68,27 +82,27 @@
 
         <TextView
             android:id="@+id/first_brewed"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="247dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="247dp"
             android:fontFamily="sans-serif-medium"
+            android:text="First brewed"
             android:textColor="#8f18aa"
             android:textSize="16sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/beer_image_details"
-            android:text="First brewed" />
+            app:layout_constraintTop_toBottomOf="@+id/beer_image_details" />
 
         <TextView
             android:id="@+id/first_brewed_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="304dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="280dp"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="6sp"
             android:text="1857"
@@ -101,168 +115,168 @@
 
         <TextView
             android:id="@+id/beer_description"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="254dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="254dp"
             android:fontFamily="sans-serif-medium"
+            android:text="Description"
             android:textColor="#8f18aa"
             android:textSize="16sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/first_brewed_text"
-            android:text="Description" />
+            app:layout_constraintTop_toBottomOf="@+id/first_brewed_text" />
 
         <TextView
             android:id="@+id/beer_description_text"
-            android:layout_width="312dp"
+            android:layout_width="0dp"
             android:layout_height="84dp"
-            android:layout_marginEnd="24dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="7sp"
+            android:text="Our award winning Saison is the colour of the golden sun. This beer has a lively carbonation which releases aromas of luscious tropical fruit. A mellow, honey sweetness is followed by a crisp, tart finish."
             android:textColor="#4b4b62"
             android:textSize="12sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/beer_description"
-            android:text="Our award winning Saison is the colour of the golden sun. This beer has a lively carbonation which releases aromas of luscious tropical fruit. A mellow, honey sweetness is followed by a crisp, tart finish." />
+            app:layout_constraintTop_toBottomOf="@+id/beer_description" />
 
         <TextView
             android:id="@+id/beer_abv"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="304dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="304dp"
             android:fontFamily="sans-serif-medium"
+            android:text="ABV"
             android:textColor="#8f18aa"
             android:textSize="16sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/beer_description_text"
-            android:text="ABV" />
+            app:layout_constraintTop_toBottomOf="@+id/beer_description_text" />
 
         <TextView
             android:id="@+id/beer_ibu_detail"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="243dp"
             android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="243dp"
             android:fontFamily="sans-serif-medium"
+            android:text="IBU"
             android:textColor="#8f18aa"
             android:textSize="16sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/beer_abv"
-            app:layout_constraintTop_toBottomOf="@+id/beer_description_text"
-            android:text="IBU" />
+            app:layout_constraintTop_toBottomOf="@+id/beer_description_text" />
 
         <TextView
             android:id="@+id/beer_abv_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="317dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="301dp"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="6sp"
+            android:text="7%"
             android:textColor="#4b4b62"
             android:textSize="14sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/beer_abv"
-            android:text="7%" />
+            app:layout_constraintTop_toBottomOf="@+id/beer_abv" />
 
         <TextView
             android:id="@+id/beer_ibu_detail_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="253dp"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="237dp"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="6sp"
+            android:text="45"
             android:textColor="#4b4b62"
             android:textSize="14sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/beer_abv_text"
-            app:layout_constraintTop_toBottomOf="@+id/beer_ibu_detail"
-            android:text="45" />
+            app:layout_constraintTop_toBottomOf="@+id/beer_ibu_detail" />
 
         <TextView
             android:id="@+id/beer_fg"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="316dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="316dp"
             android:fontFamily="sans-serif-medium"
+            android:text="FG"
             android:textColor="#8f18aa"
             android:textSize="16sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/beer_abv_text"
-            android:text="FG" />
+            app:layout_constraintTop_toBottomOf="@+id/beer_abv_text" />
 
         <TextView
             android:id="@+id/beer_fg_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="304dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="288dp"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="6sp"
+            android:text="1012"
             android:textColor="#4b4b62"
             android:textSize="14sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/beer_fg"
-            android:text="1012" />
+            app:layout_constraintTop_toBottomOf="@+id/beer_fg" />
 
         <TextView
             android:id="@+id/beer_og"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="247dp"
             android:layout_marginStart="47dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="247dp"
             android:fontFamily="sans-serif-medium"
+            android:text="OG"
             android:textColor="#8f18aa"
             android:textSize="16sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/beer_fg"
-            app:layout_constraintTop_toBottomOf="@+id/beer_ibu_detail_text"
-            android:text="OG" />
+            app:layout_constraintTop_toBottomOf="@+id/beer_ibu_detail_text" />
 
         <TextView
             android:id="@+id/beer_og_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="237dp"
-            android:layout_marginStart="35dp"
+            android:layout_marginStart="19dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="221dp"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="6sp"
+            android:text="1052"
             android:textColor="#4b4b62"
             android:textSize="14sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/beer_fg_text"
-            app:layout_constraintTop_toBottomOf="@+id/beer_og"
-            android:text="1052" />
+            app:layout_constraintTop_toBottomOf="@+id/beer_og" />
 
 </android.support.constraint.ConstraintLayout>
 

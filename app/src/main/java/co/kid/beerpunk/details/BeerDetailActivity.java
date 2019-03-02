@@ -1,11 +1,16 @@
 package co.kid.beerpunk.details;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,23 +20,29 @@ import java.util.List;
 
 import co.kid.beerpunk.R;
 import co.kid.beerpunk.config.RetrofitConfig;
+import co.kid.beerpunk.list.ListBeerActivity;
+import co.kid.beerpunk.listener.BeerListener;
 import co.kid.beerpunk.model.BeerDetail;
+import co.kid.beerpunk.repository.BeerRepository;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BeerDetailActivity extends AppCompatActivity {
+public class BeerDetailActivity extends AppCompatActivity implements BeerListener, View.OnClickListener {
 
     private Toolbar beerDetailToolbar;
     private RetrofitConfig retrofitConfig = new RetrofitConfig();
-    private BeerDetail beerDetail;
+    private BeerRepository beerRepository;
+    final BeerDetail beer = new BeerDetail();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beer_details);
+        beerRepository = new BeerRepository(this);
         int id = getIntent().getExtras().getInt("beerId", -1);
-        setViews(getBeerDetail(id));
+        findViewById(R.id.favorites_button).setOnClickListener(this);
+        getBeerDetail(id);
         beerDetailToolbar = findViewById(R.id.details_toolbar);
         setSupportActionBar(beerDetailToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -43,6 +54,23 @@ public class BeerDetailActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.toolbar_menu, menu);
         return true;
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent intent = new Intent(this, ListBeerActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void setViews(BeerDetail beerDetail) {
@@ -69,19 +97,45 @@ public class BeerDetailActivity extends AppCompatActivity {
         beerOg.setText(String.valueOf(beerDetail.getOriginalGravity()));
     }
 
-    private BeerDetail getBeerDetail(int id) {
-        final BeerDetail beer = new BeerDetail();
+    private void getBeerDetail(int id) {
         Call<List<BeerDetail>> beerDetailCall = retrofitConfig.getPunkApi().getById(id);
         beerDetailCall.enqueue(new Callback<List<BeerDetail>>() {
             @Override
             public void onResponse(Call<List<BeerDetail>> call, Response<List<BeerDetail>> response) {
                 beer.setAll(response.body().get(0));
+                onBeerDetailAvailable(beer);
             }
 
             @Override
             public void onFailure(Call<List<BeerDetail>> call, Throwable t) {
+                Log.e("error", t.getMessage());
             }
         });
-        return beer;
+    }
+
+    @Override
+    public void onBeerDetailAvailable(BeerDetail beerDetail) {
+        setViews(beerDetail);
+    }
+
+    private void saveFavorites(View view) {
+        Drawable heartOutlinedIcon = getResources().getDrawable(R.drawable.ic_heart_outlined);
+        Drawable heartFilleddIcon = getResources().getDrawable(R.drawable.ic_heart_filled);
+        if (beerRepository.exists(beer.getId())) {
+            beerRepository.deletFavorite(beer.getId());
+            view.setBackground(heartOutlinedIcon);
+        } else {
+            beerRepository.insertFavorites(beer.getName(), beer.getId());
+            view.setBackground(heartFilleddIcon);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.favorites_button:
+                saveFavorites(view);
+                break;
+        }
     }
 }
