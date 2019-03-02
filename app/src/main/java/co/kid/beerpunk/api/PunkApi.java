@@ -17,11 +17,11 @@ public interface PunkApi {
             @Query("per_page") int perPage
     );
 
-    @GET("beers/{ids}/favorite")
+    @GET("beers")
     Call<List<Beer>> listFavoritesPageable(
             @Query("page") int page,
             @Query("per_page") int perPage,
-            @Path("ids") String ids
+            @Query("ids") String ids
     );
 
     @GET("beers/{id}")

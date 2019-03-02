@@ -11,13 +11,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.AbsListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import co.kid.beerpunk.R;
 import co.kid.beerpunk.config.RetrofitConfig;
+import co.kid.beerpunk.list.ListBeerActivity;
 import co.kid.beerpunk.list.adapter.BeerAdapter;
 import co.kid.beerpunk.model.Beer;
 import co.kid.beerpunk.repository.BeerRepository;
@@ -25,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListBeerActivity extends AppCompatActivity {
+public class FavoriteBeerListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
@@ -33,10 +33,11 @@ public class ListBeerActivity extends AppCompatActivity {
     private RetrofitConfig retrofitConfig = new RetrofitConfig();
     private Toolbar beerListToolbar;
     private List<Beer> beers = new ArrayList<>();
+    private List<Integer> favoritesId = new ArrayList<>();
+    private BeerRepository beerRepository;
     private Integer pageIndex = 1;
     private Boolean isScrolling = false;
     private int currentItems, totalItems, scrollOutItems;
-    private BeerRepository beerRepository;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,42 +47,40 @@ public class ListBeerActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerBeers);
         layoutManager = new LinearLayoutManager(this);
         beerListToolbar = findViewById(R.id.list_toolbar);
+        beerListToolbar.setTitle("Favorites");
         setSupportActionBar(beerListToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         buildView();
         getBeersPageable(pageIndex);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_menu, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
         switch (item.getItemId()) {
-            case R.id.favorites:
-                intent = new Intent(this, FavoriteBeerListActivity.class);
-                return verifyFavorites(intent);
-
+            case android.R.id.home:
+                Intent intent = new Intent(this, ListBeerActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.allBeer:
+                intent = new Intent(this, ListBeerActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private Boolean verifyFavorites(Intent intent) {
-        if (beerRepository.getAllIds().size()>0) {
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            finish();
-            return true;
-        } else {
-            Toast.makeText(this, "No favorites yet!", Toast.LENGTH_SHORT).show();
-            return false;
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.favorites_toolbar_menu, menu);
+        return true;
     }
 
     private void buildView () {
@@ -113,15 +112,20 @@ public class ListBeerActivity extends AppCompatActivity {
     }
 
     private void getBeersPageable(final Integer page) {
-        Call<List<Beer>> call = retrofitConfig.getPunkApi().listPageable(page, 10);
+        List<Integer> ids = beerRepository.getAllIds();
+        StringBuilder pathParam = new StringBuilder();
+        for (int id: ids) {
+            pathParam.append(id+"|");
+        }
+        Call<List<Beer>> call = retrofitConfig.getPunkApi().listFavoritesPageable(page, 10, pathParam.toString());
         call.enqueue(new Callback<List<Beer>>() {
             @Override
             public void onResponse(Call<List<Beer>> call, Response<List<Beer>> response) {
-                    for (Beer beer: response.body()) {
-                        beers.add(beer);
-                    }
-                    pageIndex++;
-                    adapter.setData(beers);
+                for (Beer beer: response.body()) {
+                    beers.add(beer);
+                }
+                pageIndex++;
+                adapter.setData(beers);
             }
             @Override
             public void onFailure(Call<List<Beer>> call, Throwable t) {

@@ -18,6 +18,19 @@
         android:textColor="@color/cardview_light_background">
 
         <ImageView
+            android:id="@+id/favorite_icon_list"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_heart_filled"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textNameBeer"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
             android:id="@+id/imageBeer"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -36,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="128dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="128dp"
             android:text="TextView"
             android:textColor="@color/colorPrimary"
             android:textSize="16dp"

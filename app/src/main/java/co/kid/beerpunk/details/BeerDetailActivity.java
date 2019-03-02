@@ -13,13 +13,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
 import co.kid.beerpunk.R;
 import co.kid.beerpunk.config.RetrofitConfig;
+import co.kid.beerpunk.list.FavoriteBeerListActivity;
 import co.kid.beerpunk.list.ListBeerActivity;
 import co.kid.beerpunk.listener.BeerListener;
 import co.kid.beerpunk.model.BeerDetail;
@@ -60,16 +64,32 @@ public class BeerDetailActivity extends AppCompatActivity implements BeerListene
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent = new Intent(this, ListBeerActivity.class);
+                intent = new Intent(this, ListBeerActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
                 return true;
+            case R.id.favorites:
+                intent = new Intent(this, FavoriteBeerListActivity.class);
+                return verifyFavorites(intent);
 
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private Boolean verifyFavorites(Intent intent) {
+        if (beerRepository.getAllIds().size()>0) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+            return true;
+        } else {
+            Toast.makeText(this, "No favorites yet!", Toast.LENGTH_SHORT).show();
+            return false;
         }
     }
 
@@ -91,7 +111,7 @@ public class BeerDetailActivity extends AppCompatActivity implements BeerListene
         beerTagline.setText(beerDetail.getTagline());
         beerFirstBrewed.setText(beerDetail.getFirstBrewed());
         beerDescription.setText(beerDetail.getDescription());
-        beerAbv.setText(String.valueOf(beerDetail.getAbv()));
+        beerAbv.setText(String.valueOf(beerDetail.getAbv()) + "%");
         beerIbu.setText(String.valueOf(beerDetail.getIbu()));
         beerFg.setText(String.valueOf(beerDetail.getFinalGravity()));
         beerOg.setText(String.valueOf(beerDetail.getOriginalGravity()));
@@ -116,6 +136,7 @@ public class BeerDetailActivity extends AppCompatActivity implements BeerListene
     @Override
     public void onBeerDetailAvailable(BeerDetail beerDetail) {
         setViews(beerDetail);
+        isFavorite();
     }
 
     private void saveFavorites(View view) {
@@ -127,6 +148,16 @@ public class BeerDetailActivity extends AppCompatActivity implements BeerListene
         } else {
             beerRepository.insertFavorites(beer.getName(), beer.getId());
             view.setBackground(heartFilleddIcon);
+        }
+    }
+
+    private void isFavorite() {
+        Drawable heartOutlinedIcon = getResources().getDrawable(R.drawable.ic_heart_outlined);
+        Drawable heartFilleddIcon = getResources().getDrawable(R.drawable.ic_heart_filled);
+        if (beerRepository.exists(beer.getId())) {
+            findViewById(R.id.favorites_button).setBackground(heartFilleddIcon);
+        } else {
+            findViewById(R.id.favorites_button).setBackground(heartOutlinedIcon);
         }
     }
 

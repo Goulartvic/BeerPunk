@@ -4,6 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.kid.beerpunk.config.DatabaseGateway;
 
 public class BeerRepository {
@@ -27,13 +30,23 @@ public class BeerRepository {
     }
 
     public boolean exists(int id) {
-        String Query = "Select * from " + TABLE_FAVORITE_BEER + " where beer_id = " + id;
-        Cursor cursor = gateway.getDatabase().rawQuery(Query, null);
+        String query = "SELECT * FROM " + TABLE_FAVORITE_BEER + " where beer_id = " + id;
+        Cursor cursor = gateway.getDatabase().rawQuery(query, null);
         if(cursor.getCount() <= 0){
             cursor.close();
             return false;
         }
         cursor.close();
         return true;
+    }
+
+    public List<Integer> getAllIds() {
+        List<Integer> idList = new ArrayList<>();
+        String query = "SELECT beer_id FROM " + TABLE_FAVORITE_BEER;
+        Cursor cursor = gateway.getDatabase().rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            idList.add(cursor.getInt(0));
+        }
+        return idList;
     }
 }

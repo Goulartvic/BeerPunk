@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".details.BeerDetailActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".list.FavoriteBeerListActivity"
+            android:screenOrientation="portrait"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
